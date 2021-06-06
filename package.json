@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "  ./dist --transforms imports",
     "dev": "nodemon src/server.js",
-    "start": " ./dist --transforms imports && node dist/server"
+    "start": " nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
