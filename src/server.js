@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json()); //lidar com requisicoes no formato json
 app.use(routes); 
 
-app.use("/", {message: "ok"})
+
 
 app.listen(8080);
 

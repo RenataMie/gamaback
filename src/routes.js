@@ -13,4 +13,6 @@ routes.get("/enderecos", EnderecoController.index);
 routes.get("/enderecos/:end_id", EnderecoController.showId);
 routes.post("/enderecos", EnderecoController.store);
 
+routes.get("/", {message: "ok"})
+
 module.exports = routes;
