@@ -1,7 +1,6 @@
 const express = require ("express");
 const cors = require("cors");
 const routes = require("./routes");
-const { propfind } = require("./routes");
 
 require("./database");
 
@@ -13,5 +12,5 @@ app.use(routes);
 
 
 
-app.listen(8080);
+app.listen(8080 || 5432);
 
