@@ -1,11 +1,11 @@
-const Paciente = require("../models/Paciente");
+const Especialista = require("../models/Especialista");
 
 module.exports = {
 
     async index(req, res) {
         try{
-        const paciente = await Paciente.findAll();
-        return res.json(paciente);
+        const especialista = await Especialista.findAll();
+        return res.json(especialista);
     }
         catch(error) {
             console.log(error)
@@ -16,20 +16,20 @@ module.exports = {
         const {id} = req.params;
         
 
-        const cliente = await Paciente.findByPk(id, {
-            include: {association: "endereco_paciente"}
+        const especialista = await Especialista.findByPk(id, {
+            include: {association: "endereco_especialista"}
         });
 
-        return res.json(cliente);
+        return res.json(especialista);
     },
 
     async store(req, res) {
         
-        const {nome, cpf, tel, celular, data_nasc, email, tipo_sangue} = req.body;
+        const {registro, nome, tel, celular,  email, id_profissao} = req.body;
 
-        const paciente = await Paciente.create({nome, cpf, tel, celular, data_nasc, email,tipo_sangue});
+        const especialista = await Especialista.create({registro, nome, tel, celular, email, id_profissao});
 
-        return res.json(paciente);
+        return res.json(especialista);
     },
 
     async update(req, res) {

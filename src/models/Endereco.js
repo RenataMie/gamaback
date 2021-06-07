@@ -15,7 +15,8 @@ class Endereco extends Model {
         }, { sequelize: connection})
     }
     static associate(models) {
-        this.hasMany(models.Paciente, {foreignKey: 'id_endereco', as: "pacientes"})
+        this.hasMany(models.Paciente, {foreignKey: 'id_endereco', as: "pacientes"}),
+        this.hasMany(models.Especialista, {foreignKey: 'id_endereco', as: "especialistas"})
     }
 
 }

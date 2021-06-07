@@ -1,5 +1,4 @@
 const Endereco= require("../models/Endereco");
-const Paciente = require("../models/Paciente");
 
 module.exports = {
 
