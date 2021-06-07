@@ -17,9 +17,11 @@ routes.get("/enderecos/:end_id", EnderecoController.showId);
 routes.post("/enderecos", EnderecoController.store);
 
 routes.get("/profissoes", ProfissaoController.index);
-routes.post("/profissoes", ProfissaoController.store, EspecialistaController.store);
+routes.post("/profissoes", ProfissaoController.store);
 
-// routes.post("/especialistas", EspecialistaController.store);
+
+routes.get("/especialistas", EspecialistaController.index);
+routes.post("/especialistas", EspecialistaController.store);
 
 routes.get("/", (req,res) => {
     res.send({"message":"ok"})
