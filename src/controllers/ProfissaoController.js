@@ -1,11 +1,11 @@
-const Profissao= require("../models/Profissao");
+const Profissoe= require("../models/Profissoe");
 
 
 module.exports = {
 
 
     async index(req, res) {
-        const profissao = await Profissao.findAll();
+        const profissao = await Profissoe.findAll();
         return res.json(profissao);
     },
 
@@ -13,7 +13,7 @@ module.exports = {
        
         const { profissao } = req.body;
 
-        const [prof, created] = await Profissao.findOrCreate({
+        const [prof, created] = await Profissoe.findOrCreate({
             where: {profissao: profissao},
             defaults:{profissao}
         });

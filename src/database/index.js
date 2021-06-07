@@ -6,19 +6,19 @@ const dbConfig = require("../config/database");
 
 const Paciente = require("../models/Paciente");
 const Endereco = require("../models/Endereco");
-const Profissao = require("../models/Profissao");
+const Profissoe = require("../models/Profissoe");
 const Especialista= require("../models/Especialista");
 
 const connection = new Sequelize(dbConfig);
 
 Paciente.init(connection);
 Endereco.init(connection);
-Profissao.init(connection);
+Profissoe.init(connection);
 Especialista.init(connection);
 
 Paciente.associate(connection.models);
 Endereco.associate(connection.models);
-Profissao.associate(connection.models);
+Profissoe.associate(connection.models);
 Especialista.associate(connection.models);
 
 
