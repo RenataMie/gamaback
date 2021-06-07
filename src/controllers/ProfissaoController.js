@@ -5,7 +5,9 @@ module.exports = {
 
 
     async index(req, res) {
-        const profissao = await Profissoe.findAll();
+        const profissao = await Profissoe.findAll({
+            include: {association: "especialistas"}
+        });
         return res.json(profissao);
     },
 
