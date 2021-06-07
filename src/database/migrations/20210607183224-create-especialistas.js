@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('especialistas', {
+    return queryInterface.createTable('especialista', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.STRING(150),
         allowNull: false
       },
-      telefone: {
+      tel: {
         type: Sequelize.STRING,
         allowNull: true
       },
@@ -57,6 +57,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    return queryInterface.dropTable('especialistas');
+    return queryInterface.dropTable('especialista');
   }
 };
