@@ -13,7 +13,7 @@ class Especialista extends Model {
         }, { sequelize: connection})
     }
     static associate(models) {
-        this.belongsTo(models.Profissao, {foreignKey: 'id_profissao', as: "profissao_especialista"}),
+        this.belongsTo(models.Profissoe, {foreignKey: 'id_profissao', as: "profissao_especialista"}),
         this.belongsTo(models.Endereco, {foreignKey: 'id_endereco', as: "endereco_especialista"})
        
         // this.hasOne(models.Endereco, {foreignKey: 'cliente_id', as: "endereco"})
