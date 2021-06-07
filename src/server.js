@@ -12,5 +12,5 @@ app.use(routes);
 
 
 
-app.listen(5432);
+app.listen(process.env.PORT || 8080);
 
