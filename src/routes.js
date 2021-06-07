@@ -20,8 +20,8 @@ routes.get("/profissoes", ProfissaoController.index);
 routes.post("/profissoes", ProfissaoController.store);
 
 
-routes.get("/especialistas", EspecialistaController.index);
-routes.post("/especialistas", EspecialistaController.store);
+routes.get("/especialista", EspecialistaController.index);
+routes.post("/especialista", EspecialistaController.store);
 
 routes.get("/", (req,res) => {
     res.send({"message":"ok"})
