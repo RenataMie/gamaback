@@ -12,5 +12,5 @@ app.use(routes);
 
 
 
-app.listen(8080 || 5432);
+app.listen(5432);
 
