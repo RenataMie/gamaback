@@ -5,9 +5,10 @@ module.exports = {
     async show(req,res) {
         const diaHoje = new Date().getDate();
         const mesHoje =new Date().getMonth();
+        const anoHoje = new Date().getFullYear();
 
         const atendimento= await Atendimento.findAll({
-            where: {data_atendimento: "diaHoje + mesHoje"},
+            where: {data_atendimento: anoHoje + mesHoje + diaHoje},
         }).then(res => res.id);
         return res.json(atendimento);
     },
