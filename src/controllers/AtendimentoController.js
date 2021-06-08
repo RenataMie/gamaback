@@ -6,7 +6,7 @@ module.exports = {
     async show(req,res) {
 
         const atendimento= await Atendimento.findAll({
-            where: {data_atendimento: {[Op.eq]: new Date().toISOString()}},
+            where: {data_atendimento: {[Op.eq]: new Date().toLocaleDateString()}},
         }).then(res => res.id);
         return res.json(atendimento);
     },
