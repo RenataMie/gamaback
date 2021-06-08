@@ -11,7 +11,9 @@ class Atendimento extends Model {
             status:DataTypes.STRING,
             
 
-        }, { sequelize: connection})
+        }, { sequelize: connection,
+            createdAt: 'created_at',
+            updatedAt: 'updated_at'})
     }
     static associate(models) {
         this.belongsTo(models.Paciente, {foreignKey: 'id_paciente', as: "paciente_atendimento"}),

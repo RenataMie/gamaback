@@ -10,11 +10,11 @@ module.exports = {
         primaryKey: true
       },
       data_agendamento: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
       },
       data_atendimento: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
       },
       hora_atendimento: {
@@ -41,14 +41,6 @@ module.exports = {
         references: { model: 'especialista', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
-        allowNull: false
-      },
-      created_at: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      updated_at: {             //com a time stamps true deve ter update_at 
-        type: Sequelize.DATE,
         allowNull: false
       }
     })
