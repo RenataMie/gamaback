@@ -42,6 +42,14 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: false
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updated_at: {             //com a time stamps true deve ter update_at 
+        type: Sequelize.DATE,
+        allowNull: false
       }
     })
   },
