@@ -3,12 +3,9 @@ const Atendimento= require("../models/Atendimento");
 module.exports = {
 
     async show(req,res) {
-        const diaHoje = new Date().getDate();
-        const mesHoje =new Date().getMonth();
-        const anoHoje = new Date().getFullYear();
 
         const atendimento= await Atendimento.findAll({
-            where: {data_atendimento: anoHoje + mesHoje + diaHoje},
+            where: {data_atendimento: {[Op.gt]: new Date()}},
         }).then(res => res.id);
         return res.json(atendimento);
     },
