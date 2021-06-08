@@ -3,6 +3,7 @@ const PacienteController = require("./controllers/PacienteController");
 const EnderecoController = require("./controllers/EnderecoController");
 const ProfissaoController = require("./controllers/ProfissaoController");
 const EspecialistaController = require("./controllers/EspecialistaController");
+const AtendimentoController = require("./controllers/AtendimentoController");
 
 
 const routes = express.Router();
@@ -10,7 +11,7 @@ const routes = express.Router();
 routes.get("/pacientes", PacienteController.index);
 routes.get("/pacientes/:id", PacienteController.show);
 routes.put("/pacientes/:id", PacienteController.update);
-routes.post("/pacientes", PacienteController.store);
+routes.post("/pacientes", PacienteController.store );
 
 routes.get("/enderecos", EnderecoController.index);
 routes.get("/enderecos/:end_id", EnderecoController.showId);
@@ -22,6 +23,8 @@ routes.post("/profissoes", ProfissaoController.store);
 
 routes.get("/especialista", EspecialistaController.index);
 routes.post("/especialista", EspecialistaController.store);
+
+routes.post("/atendimentos", AtendimentoController.store);
 
 routes.get("/", (req,res) => {
     res.send({"message":"ok"})

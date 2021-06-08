@@ -14,9 +14,9 @@ class Especialista extends Model {
     }
     static associate(models) {
         this.belongsTo(models.Profissoe, {foreignKey: 'id_profissao', as: "profissao_especialista"}),
-        this.belongsTo(models.Endereco, {foreignKey: 'id_endereco', as: "endereco_especialista"})
+        this.belongsTo(models.Endereco, {foreignKey: 'id_endereco', as: "endereco_especialista"}),
+        this.hasMany(models.Atendimento, {foreignKey: 'id_especialista', as: "atendimentos"})
        
-        // this.hasOne(models.Endereco, {foreignKey: 'cliente_id', as: "endereco"})
     }
 }
 

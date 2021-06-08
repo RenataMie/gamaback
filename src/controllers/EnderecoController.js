@@ -17,7 +17,7 @@ module.exports = {
     },
 
     async store(req, res) {
-        // const {paciente_id} = req.params;
+       
         const { cep, logradouro, numero, bairro, cidade, uf} = req.body;
 
         const [endereco, created] = await Endereco.findOrCreate({
@@ -30,13 +30,6 @@ module.exports = {
         if(created) {
             console.log(endereco.id)
         }
-    
-
-        // if(!paciente) {
-        //     return res.status(400).json({error: "paciente nao encontrado"});
-        // }
-
-        // const endereco = await Endereco.create({cep, logradouro, numero, bairro, cidade, uf});
 
         return res.json(endereco);
 

@@ -14,8 +14,9 @@ class Paciente extends Model {
         }, { sequelize: connection})
     }
     static associate(models) {
-        this.belongsTo(models.Endereco, {foreignKey: 'id_endereco', as: "endereco_paciente"})
-        // this.hasOne(models.Endereco, {foreignKey: 'cliente_id', as: "endereco"})
+        this.belongsTo(models.Endereco, {foreignKey: 'id_endereco', as: "endereco_paciente"}),
+        this.hasMany(models.Atendimento, {foreignKey: 'id_paciente', as: "atendimentos"})
+        
     }
 }
 
