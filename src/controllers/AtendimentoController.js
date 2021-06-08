@@ -3,7 +3,7 @@ const Atendimento= require("../models/Atendimento");
 module.exports = {
 
     async show(req,res) {
-        const hoje = newDate();
+        const hoje = new Date();
         const atendimento= await Atendimento.findAll({
             where: {data_atendimento: hoje},
         }).then(res => res.id);
