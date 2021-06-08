@@ -9,7 +9,7 @@ module.exports = {
         const hoje = new Date().toISOString().slice(0,10)
 
         const atendimento= await Atendimento.findAll({
-            where: { data_atendimento: {[Op.eq]: hoje},  order: [ [ 'data_atendimento', 'CRESC' ]]}
+            where: { data_atendimento: {[Op.eq]: hoje}}
         })
         return res.json(atendimento);
     },
