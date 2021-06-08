@@ -5,10 +5,10 @@ const Atendimento= require("../models/Atendimento");
 module.exports = {
 
     async show(req,res) {
-        const hoje = new Date()
+        const hoje = new Date().toISOString().slice(0,10)
 
         const atendimento= await Atendimento.findAll({
-            where: sequelize.where(sequelize.fn('date', sequelize.col('data_atendimento')), "=", hoje.toISOString().slice(0,10))
+            where: { data_atendimento: {[Op.eq]: hoje}}
         })
         return res.json(atendimento);
     },
