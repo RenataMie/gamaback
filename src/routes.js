@@ -24,6 +24,7 @@ routes.post("/profissoes", ProfissaoController.store);
 routes.get("/especialista", EspecialistaController.index);
 routes.post("/especialista", EspecialistaController.store);
 
+routes.get("/atendimentos", AtendimentoController.index);
 routes.post("/atendimentos", AtendimentoController.store);
 
 routes.get("/", (req,res) => {

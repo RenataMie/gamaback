@@ -11,9 +11,9 @@ module.exports = {
     },
 
     async index(req, res) {
-        const endereco = await Endereco.findAll();
+        const atendimento = await Atendimento.findAll();
 
-        return res.json(endereco);
+        return res.json(atendimento);
     },
 
     async store(req, res) {
