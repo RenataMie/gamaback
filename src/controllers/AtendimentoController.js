@@ -1,5 +1,6 @@
-const { sequelize } = require("../models/Atendimento");
+
 const Atendimento= require("../models/Atendimento");
+const { Op } = require('sequelize');
 
 
 module.exports = {
