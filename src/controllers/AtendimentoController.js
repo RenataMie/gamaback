@@ -2,12 +2,12 @@ const Atendimento= require("../models/Atendimento");
 
 module.exports = {
 
-    async showId(req,res) {
-        const endereco = await Endereco.findOne({
-            where: {},
-            order: [ [ 'id', 'DESC' ]],
+    async show(req,res) {
+        const hoje = newDate();
+        const atendimento= await Atendimento.findAll({
+            where: {data_atendimento: hoje},
         }).then(res => res.id);
-        return res.json(endereco);
+        return res.json(atendimento);
     },
 
     async index(req, res) {
