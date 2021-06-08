@@ -11,7 +11,9 @@ module.exports = {
     },
 
     async index(req, res) {
-        const atendimento = await Atendimento.findAll();
+        const atendimento = await Atendimento.findAll({
+            include: {association: "paciente_atendimento", association: "especialista_atendimento"}
+        });
 
         return res.json(atendimento);
     },
