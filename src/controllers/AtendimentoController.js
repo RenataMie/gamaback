@@ -1,14 +1,15 @@
+const { sequelize } = require("../models/Atendimento");
 const Atendimento= require("../models/Atendimento");
 
 
 module.exports = {
 
     async show(req,res) {
-        const hoje = new Date().toISOString().slice(0,10)
+        const hoje = new Date()
 
         const atendimento= await Atendimento.findAll({
-            where: {data_atendimento: hoje},
-        }).then(res => res.id);
+            where: sequelize.where(sequelize.fn('date', sequelize.col('data_atendimento')), "=", hoje.toISOString().slice(0,10))
+        })
         return res.json(atendimento);
     },
 
