@@ -32,7 +32,7 @@ routes.post("/atendimentos", AtendimentoController.store);
 
 routes.get("/prontuarios", ProntuarioController.index);
 routes.get("/prontuarios/:id", ProntuarioController.show);
-routes.post("/prontuarios", ProntuarioController.store);
+routes.post("/prontuarios/:id", ProntuarioController.store);
 
 
 
