@@ -10,6 +10,7 @@ module.exports = {
 
         const atendimento= await Atendimento.findAll({
             where: { data_atendimento: {[Op.eq]: hoje}},
+            order:[['hora_atendimento', 'ASC']],
             include: [
                 {association: "paciente_atendimento"},
                 {association: "especialista_atendimento"}
