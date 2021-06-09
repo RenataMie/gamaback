@@ -4,6 +4,7 @@ const EnderecoController = require("./controllers/EnderecoController");
 const ProfissaoController = require("./controllers/ProfissaoController");
 const EspecialistaController = require("./controllers/EspecialistaController");
 const AtendimentoController = require("./controllers/AtendimentoController");
+const ProntuarioController = require("./controllers/ProntuarioController");
 
 
 const routes = express.Router();
@@ -28,6 +29,13 @@ routes.post("/especialista", EspecialistaController.store);
 routes.get("/atendimentos", AtendimentoController.index);
 routes.get("/atendimentos/hoje", AtendimentoController.show);
 routes.post("/atendimentos", AtendimentoController.store);
+
+routes.get("/prontuarios", ProntuarioController.index);
+routes.get("/prontuarios/:id", ProntuarioController.show);
+routes.post("/prontuarios", ProntuarioController.store);
+
+
+
 
 routes.get("/", (req,res) => {
     res.send({"message":"ok"})
