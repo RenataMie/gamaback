@@ -26,7 +26,7 @@ module.exports = {
     async store(req, res) {
 
         const {id_paciente} = req.params 
-        const { data_abertura, id_paciente } = req.body;
+        const { data_abertura} = req.body;
 
         const prontuario = await Prontuario.create({
             data_abertura, id_paciente
