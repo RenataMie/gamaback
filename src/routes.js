@@ -26,6 +26,9 @@ routes.delete('/enderecos/:id', EnderecoController.destroy);
 routes.get("/profissoes", ProfissaoController.index);
 routes.get("/profissoes/:id", ProfissaoController.show);
 routes.post("/profissoes", ProfissaoController.store);
+routes.put("/profissoes/:id", ProfissaoController.update);
+routes.delete("/profissoes/:id", ProfissaoController.destroy);
+
 
 
 routes.get("/especialista", EspecialistaController.index);

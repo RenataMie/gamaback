@@ -10,7 +10,7 @@ describe("Profissao", () => {
     });
 
     beforeEach(() => {
-        jest.setTimeout(40000);
+        jest.setTimeout(30000);
       });
 
     it("post nova profissao", async() => {
@@ -58,34 +58,28 @@ describe("Profissao", () => {
         })
 
 
-    //     it("update paciente", async() => {
+        it("update profissao", async() => {
 
-    //         const response = await request(app)
-    //             .put("/pacientes/1")
-    //             .send({
-    //                 cpf: '101.111.111-12',
-    //                 nome: 'Roberto da Silva',
-    //                 data_nasc: '1999-02-02',
-    //                 tel: '(11)10811-2222',
-    //                 celular: '(11)91191-222',
-    //                 email: 'robertosantossilva@email.com',
-    //                 tipo_sangue: 'O+',
-    //             });
+            const response = await request(app)
+                .put("/profissoes/1")
+                .send({
+                    profissao: "cardiologista",
+                });
     
-    //         expect(response.ok).toBeTruthy();
-    //         expect(response.statusCode).toEqual(200);
+            expect(response.ok).toBeTruthy();
+            // expect(response.body.profissao).toMatch("cardiologista");
             
-    //     })
+        })
 
-    //     it("delete paciente", async() => {
+        it("delete profissao", async() => {
 
-    //         const response = await request(app)
-    //             .del("/pacientes/1")
+            const response = await request(app)
+                .del("/profissoes/1")
                
-    //             expect(response.statusCode).toEqual(200);
-    //             expect(response.ok).toBeTruthy();
+                expect(response.statusCode).toEqual(200);
+                expect(response.ok).toBeTruthy();
             
-    //     })
+        })
     
         
     

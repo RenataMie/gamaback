@@ -11,7 +11,7 @@ describe("Endereco", () => {
     });
 
     beforeEach(() => {
-        jest.setTimeout(30000);
+        jest.setTimeout(40000);
       });
 
     // beforeEach(async() => {
