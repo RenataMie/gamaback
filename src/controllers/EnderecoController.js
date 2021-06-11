@@ -33,5 +33,29 @@ module.exports = {
 
         return res.json(endereco);
 
-    }
+    },
+
+    async update(req, res) {
+        try {
+          const temp = await Endereco.findByPk(req.params.id);
+    
+          await temp.update(req.body);
+    
+          return res.json({ temp });
+        } catch (err) {
+          return res.status(400).json({ error: err.message });
+        }
+      },
+    
+      async destroy(req, res) {
+        // try {
+          const temp = await Endereco.findByPk(req.params.id);
+    
+          await temp.destroy();
+    
+          return res.json();
+        // } catch (err) {
+        //   return res.status(400).json({ error: err.message });
+        // }
+      }
 };

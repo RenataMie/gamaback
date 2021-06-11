@@ -11,12 +11,17 @@ const routes = express.Router();
 
 routes.get("/pacientes", PacienteController.index);
 routes.get("/pacientes/:id", PacienteController.show);
-routes.put("/pacientes/:id", PacienteController.update);
 routes.post("/pacientes", PacienteController.store );
+routes.put("/pacientes/:id", PacienteController.update);
+routes.delete('/pacientes/:id', PacienteController.destroy); 
+
 
 routes.get("/enderecos", EnderecoController.index);
-routes.get("/enderecos/:end_id", EnderecoController.showId);
+routes.get("/enderecos/:id", EnderecoController.showId);
 routes.post("/enderecos", EnderecoController.store);
+routes.put('/enderecos/:id', EnderecoController.update);
+routes.delete('/enderecos/:id', EnderecoController.destroy);
+
 
 routes.get("/profissoes", ProfissaoController.index);
 routes.post("/profissoes", ProfissaoController.store);

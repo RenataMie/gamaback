@@ -40,6 +40,18 @@ module.exports = {
           })
           
      },
+
+     async destroy(req, res) {
+        // try {
+          const temp = await Paciente.findByPk(req.params.id);
+    
+          await temp.destroy();
+    
+          return res.json();
+        // } catch (err) {
+        //   return res.status(400).json({ error: err.message });
+        // }
+      }
 }
 
 
