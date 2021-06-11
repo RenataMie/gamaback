@@ -41,7 +41,7 @@ describe("Profissao", () => {
     it("get profissao pelo ID", async() => {
 
         const response = await request(app)
-            .get("/profissao/1")
+            .get("/profissoes/1")
            
         expect(response.statusCode).toEqual(200);
         // expect.objectContaining({
