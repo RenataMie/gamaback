@@ -3,13 +3,10 @@ const Paciente = require("../models/Paciente");
 module.exports = {
 
     async index(req, res) {
-        try{
+        
         const paciente = await Paciente.findAll();
         return res.json(paciente);
-    }
-        catch(error) {
-            console.log(error)
-        }
+
     },
 
     async show(req, res) {

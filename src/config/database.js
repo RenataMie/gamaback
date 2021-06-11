@@ -1,7 +1,10 @@
-require("dotenv/config");
+require("dotenv").config({
+  path:process.env.NODE_ENV === "test" ? ".env.test" : ".env"
+});
 
 module.exports = {
-  dialect: "postgres",
+  dialect: process.env.DB_DIALECT || "postgres",
+  storage: "./__testes/database.sqlite",
   dialectOptions: {
     ssl: {              //primeiro erro - ssl:true
       require: true,            //segundo erro
