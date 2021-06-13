@@ -9,6 +9,7 @@ const ProntuarioController = require("./controllers/ProntuarioController");
 
 const routes = express.Router();
 
+
 routes.get("/pacientes", PacienteController.index);
 routes.get("/pacientes/:id", PacienteController.show);
 routes.post("/pacientes", PacienteController.store );
