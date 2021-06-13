@@ -11,6 +11,7 @@ describe("Paciente", () => {
         const response = await request(app)
             .post("/pacientes")
             .send({
+                
                 cpf: '101.111.111-12',
                 nome: 'Roberto da Silva',
                 data_nasc: '1999-02-02',
@@ -18,6 +19,7 @@ describe("Paciente", () => {
                 celular: '(11)91191-1011',
                 email: 'robertossilva@email.com',
                 tipo_sangue: 'O+',
+                
             });
 
         expect(response.ok).toBeTruthy();

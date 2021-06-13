@@ -11,15 +11,15 @@ describe("Especialista", () => {
         const response = await request(app)
             .post("/especialista")
             .send({
-                registro: '194528-SP',
-                nome: 'Aarao Andrade Napoleao Lima',
-                tel: '11922234567',
-                celular: '11922334459',
-                email: 'araoo@example.com',
-                id_profissao: 1,
+                registro: "2222-SP",
+                nome: "Maria Aparecida da Silva",
+                tel: "1199987",
+                celular: "1199999",
+                email: "maria@medica.com",
+                id_profissao: 1
             });
 
-        console.log(response)
+        expect(response.statusCode).toEqual(200);
         expect(response.id !== 0).toBe(true);
         
     })
