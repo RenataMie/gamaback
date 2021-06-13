@@ -7,7 +7,8 @@ module.exports = {
         const {id}= req.params
         
         const profissao = await Prontuario.findOne({
-            where:{id_paciente: id}
+            where:{id_paciente: id},
+            include: {association: "paciente_prontuario"}
         });
         return res.json(profissao);
     },
