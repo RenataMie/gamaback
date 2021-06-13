@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors')
 const PacienteController = require("./controllers/PacienteController");
 const EnderecoController = require("./controllers/EnderecoController");
 const ProfissaoController = require("./controllers/ProfissaoController");
@@ -8,6 +9,9 @@ const ProntuarioController = require("./controllers/ProntuarioController");
 
 
 const routes = express.Router();
+routes.use(cors());
+
+routes.options('*', cors())
 
 
 routes.get("/pacientes", PacienteController.index);
