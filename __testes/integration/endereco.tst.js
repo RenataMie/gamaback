@@ -1,22 +1,10 @@
 const request = require('supertest');
 const app = require("../../src/app");
-const connection = require("../../src/database");
+require("../../src/database");
 // const truncate = require("../utils/truncate");
 
-// const  { Endereco }   = require("../../src/models/Endereco");
 
 describe("Endereco", () => {
-    afterAll(() => {
-       connection.close();
-    });
-
-    beforeEach(() => {
-        jest.setTimeout(40000);
-      });
-
-    // beforeEach(async() => {
-    //    await truncate();
-    // });
 
     it("post novo endereco", async() => {
 
@@ -36,15 +24,44 @@ describe("Endereco", () => {
         
     })
 
+    it("ERROR post novo endereco", async() => {
+
+        const response = await request(app)
+            .post("/enderecos")
+            .send({
+                cep: null,
+                logradouro: "Vila Nossa Senhora das Neves",
+                numero: null,
+                bairro: "Bairro Estrela",
+                cidade: "João Pessoa",
+                uf: null
+            });
+
+            expect(response.statusCode).toEqual(400);
+            expect(response.body).toHaveProperty("error");
+        
+    })
+
     it("get endereco", async() => {
 
         const response = await request(app)
             .get("/enderecos")
            
         expect(response.statusCode).toEqual(200);
-        expect(response.body[0].cidade).not.toBe(undefined);
+        expect(response.body[0].cidade).toEqual("João Pessoa");
         
     })
+
+    //  it("ERROR get endereco", async() => {
+
+    //     const response = await request(app)
+    //         .get("/enderecoss")
+        
+    //     // console.log(response)
+    //     expect(response.statusCode).toEqual(400);
+    //     expect(response.body).toHaveProperty("error");
+        
+    // })
     
 
     it("get ID do endereco", async() => {
@@ -57,6 +74,17 @@ describe("Endereco", () => {
         expect(response.body).toEqual(1);
         
     })
+
+    // it("ERROR get ID do endereco", async() => {
+
+    //     const response = await request(app)
+    //         .get("/enderecos/0")
+        
+    //     // console.log(response)
+    //     expect(response.statusCode).toEqual(400);
+    //     expect(response.body).toHaveProperty("error");
+        
+    // })
 
     it("update endereco", async() => {
 
@@ -96,6 +124,7 @@ describe("Endereco", () => {
         
     })
 
+
     it("delete endereco", async() => {
 
         const response = await request(app)
@@ -107,12 +136,26 @@ describe("Endereco", () => {
     })
 
 
+
+      it("ERROR delete endereco", async() => {
+
+        const response = await request(app)
+            .del("/enderecos/0")
+        
+        // console.log(response)
+        expect(response.statusCode).toEqual(400);
+        expect(response.body).toHaveProperty("error");
+        
+    })
+
+
+
+    //homepage
     it("homepage", async() => {
 
         const response = await request(app)
             .get("/")
-           
-            
+         
             expect(response.ok).toBeTruthy();
             expect(response.body).toHaveProperty("message");
         

@@ -32,7 +32,10 @@ routes.delete("/profissoes/:id", ProfissaoController.destroy);
 
 
 routes.get("/especialista", EspecialistaController.index);
+routes.get("/especialista/:id", EspecialistaController.show);
 routes.post("/especialista", EspecialistaController.store);
+routes.put("/especialista/:id", EspecialistaController.update);
+routes.delete("/especialista/:id", EspecialistaController.destroy);
 
 
 routes.get("/atendimentos", AtendimentoController.index);
